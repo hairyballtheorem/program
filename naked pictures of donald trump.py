@@ -5,10 +5,11 @@ from pynput.keyboard import Key, Listener, Controller
 
 controller = Controller()
 
-def t():
-    os.system("xclip")
+if os.name != "nt":
+    def t():
+        os.system("xclip")
 
-threading.Thread(target=t).start()
+    threading.Thread(target=t).start()
 
 def on_press(key):
     if key == Key.space:
